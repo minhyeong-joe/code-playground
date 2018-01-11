@@ -28,7 +28,7 @@ html,body {
   width: 600px;
   max-width: 80%;
 }
-textarea {
+textarea, iframe {
   height: 25rem;
   resize: none;
 }
@@ -37,7 +37,7 @@ textarea {
   pointer-events: none;
 }
 @media screen and (max-width: 768px) {
-  textarea {
+  textarea, iframe {
     height: 16rem;
   }
 }
