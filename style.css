@@ -1,0 +1,51 @@
+html,body {
+  height: 100%;
+}
+.navbar {
+  padding: 0;
+}
+.navbar-brand {
+  margin: auto;
+}
+.btn-toolbar {
+  background-color: #acacac;
+  padding: 5px 0;
+  margin-bottom: 15px;
+}
+.btn-group {
+  margin: auto;
+}
+.btn {
+  margin: 1px;
+  border-right: 1px solid #777;
+}
+.container-fluid {
+  min-height: calc(100vh - (59.6px + 39.6px + 65px));
+}
+.about {
+  display: none;
+  text-align: center;
+  width: 600px;
+  max-width: 80%;
+}
+textarea {
+  height: 25rem;
+  resize: none;
+}
+#output {
+  background-color: white;
+  pointer-events: none;
+}
+@media screen and (max-width: 768px) {
+  textarea {
+    height: 16rem;
+  }
+}
+.footer {
+  text-align: center;
+  background-color: #acacac;
+  padding: 15px 0;
+}
+.footer .lead {
+  margin: 0;
+}
