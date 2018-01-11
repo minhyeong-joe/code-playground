@@ -13,7 +13,7 @@
   </head>
   <body>
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="" style="pointer-events:none;">
         HTML, CSS, JS PLAYGROUND
       </a>
     </nav>
@@ -35,43 +35,69 @@
         <div class="col-md col-sm-6 html">
           <div class="form-group">
             <label for="html-editor">HTML</label>
-            <textarea class="form-control" id="html-editor" name="html-editor" rows="3"></textarea>
+            <textarea class="form-control" id="html-editor" name="html-editor" rows="3"><p id="foo">Hello World!</p>
+<button id="btn">Click Me!</button></textarea>
           </div>
         </div>
         <div class="col-md col-sm-6 css">
           <div class="form-group">
             <label for="css-editor">CSS</label>
-            <textarea class="form-control" id="css-editor" name="css-editor" rows="3"></textarea>
+            <textarea class="form-control" id="css-editor" name="css-editor" rows="3">#foo {
+  text-align: center;
+}
+#btn {
+  display: block;
+  margin: auto;
+}</textarea>
           </div>
         </div>
         <div class="col-md col-sm-6 js" style="">
           <div class="form-group">
             <label for="js-editor">JS</label>
-            <textarea class="form-control" id="js-editor" name="js-editor" rows="3"></textarea>
+            <textarea class="form-control" id="js-editor" name="js-editor" rows="3">var btn = document.getElementById("btn");
+btn.addEventListener("click", function() {
+  alert("Have Fun!");
+});</textarea>
           </div>
         </div>
         <div class="col-md col-sm-6 output">
           <div class="form-group">
             <label for="output">Output</label>
             <iframe class="form-control" id="output" name="output">
-              <!DOCTYPE html>
-              <html>
-                <head>
-                  <meta charset="utf-8">
-                  <title></title>
-                </head>
-                <body>
-                </body>
-              </html>
             </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-2">
+          <button type="button" class="btn btn-danger btn-delete" data-toggle="modal" data-target="#confirm-delete">Delete All</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="delete-confirmation" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">ARE YOU SURE?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            This action is not reversible and all unsaved data will be lost.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger btn-confirm">Yes, Delete All</button>
           </div>
         </div>
       </div>
     </div>
 
 
+
     <footer class="footer">
-      <p class="lead">&copy; Minhyeong Joe</p>
+      <p class="lead"><a href="https://mj-webdev.com" style="color:inherit;" target="_blank">&copy; Minhyeong Joe</a></p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

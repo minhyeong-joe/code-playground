@@ -19,21 +19,37 @@ $(function(){
     }
   });
 
+  // delete all entries on button click
+  $('.btn.btn-confirm').on('click', function() {
+    $('textarea').val("");
+    $('body',target).empty();
+    $('head',target).empty();
+    $('#confirm-delete').modal('hide')
+  });
+
+  // iframe load initial textarea input
+  var target = $('#output')[0].contentWindow.document;
+  var html = $('#html-editor').val();
+  var css = $('#css-editor').val();
+  var js = $('#js-editor').val();
+  $('body',target).prepend(html);
+  $('head',target).append('<style>'+css+'</style>');
+  $('body', target).append('<script style="text/javascript">'+js+'</script>');
 
   $('textarea').on('keyup', function() {
-    var target = $('#output')[0].contentWindow.document;
+
     target.open();
     target.close();
 
     var html = $('#html-editor').val();
-    $('body',target).append(html);
+    $('body',target).prepend(html);
 
     var css = $('#css-editor').val();
     $('head',target).append('<style>'+css+'</style>');
 
     var js = $('#js-editor').val();
-    $('head', target).append('<script type="text/javascript">'+js+'</script>');
-    $( '#output' ).attr( 'src', function ( i, val ) { return val; });
+    $('body', target).append('<script style="text/javascript">'+js+'</script>');
+
   });
 
 

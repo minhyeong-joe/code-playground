@@ -32,9 +32,16 @@ textarea, iframe {
   height: 25rem;
   resize: none;
 }
+#debugDiv {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+}
 #output {
   background-color: white;
-  pointer-events: none;
+}
+.btn.btn-delete {
+  width: 100%;
 }
 @media screen and (max-width: 768px) {
   textarea, iframe {
