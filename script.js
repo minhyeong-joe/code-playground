@@ -1,7 +1,6 @@
 $(function(){
 
   // button toggle
-
   function AllClosed() {
     var countActive = $('.btn.active').length;
     console.log(countActive);
@@ -32,25 +31,31 @@ $(function(){
   var html = $('#html-editor').val();
   var css = $('#css-editor').val();
   var js = $('#js-editor').val();
-  $('body',target).prepend(html);
-  $('head',target).append('<style>'+css+'</style>');
-  $('body', target).append('<script style="text/javascript">'+js+'</script>');
+  const jQuery_CDN = '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>';
+  const $_in_iframe = 'if (typeof(jQuery) == "undefined") {var iframeBody = document.getElementsByTagName("body")[0];var jQuery = function (selector) { return parent.jQuery(selector, iframeBody); };var $ = jQuery;}';
 
-  $('textarea').on('keyup', function() {
+function output() {
 
-    target.open();
-    target.close();
+  target.open();
 
-    var html = $('#html-editor').val();
-    $('body',target).prepend(html);
+  var html = $('#html-editor').val();
+  // $('body',target).prepend(html);
 
-    var css = $('#css-editor').val();
-    $('head',target).append('<style>'+css+'</style>');
+  var css = $('#css-editor').val();
+  // $('head',target).append('<style>'+css+'</style>');
 
-    var js = $('#js-editor').val();
-    $('body', target).append('<script style="text/javascript">'+js+'</script>');
+  var js = $('#js-editor').val();
+  // $('body', target).append('<script style="text/javascript">'+js+'</script>');
+  target.writeln(
+    html +
+    '<style>' + css + '</style>' + jQuery_CDN + '<script style="text/javascript">' + $_in_iframe + js + '</script>'
+  );
 
-  });
+  target.close();
+}
+output();
+
+$('textarea').on('keyup', output);
 
 
 });
